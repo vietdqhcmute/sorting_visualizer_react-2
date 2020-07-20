@@ -8,15 +8,15 @@ class ChartBuilder extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      randomList: this.generateRandomList(),
+      randomList: this.generateRandomList(20),
     };
   }
 
-  generateRandomList = () => {
+  generateRandomList = (maxLength) => {
     let arr = [];
 
-    while (arr.length < 10) {
-      let random = Math.floor(Math.random() * 10) + 1;
+    while (arr.length < maxLength) {
+      let random = Math.floor(Math.random() * maxLength) + 1;
       if (arr.indexOf(random) === -1) arr.push(random);
     }
     return arr;
