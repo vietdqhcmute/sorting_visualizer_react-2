@@ -1,0 +1,13 @@
+.Column {
+  width: 10%;
+  display: flex;
+  flex-direction: column-reverse;
+}
+.Column_value {
+  width: 100%;
+  background-color: rgb(214, 109, 23);
+  outline: 2px solid;
+}
+.Column_empty {
+  width: 100%;
+}
