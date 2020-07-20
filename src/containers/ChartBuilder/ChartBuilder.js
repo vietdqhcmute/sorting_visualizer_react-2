@@ -8,7 +8,7 @@ class ChartBuilder extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      randomList: this.generateRandomList(20),
+      randomList: this.generateRandomList(30),
     };
   }
 

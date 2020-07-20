@@ -15,7 +15,6 @@ const chartColumn = (props) => {
       width: props.columnWidth + "%"
     }
   };
-  console.log(valuePercentage)
 
   return (
     <div style={style.column} className={classes.Column}>
