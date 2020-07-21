@@ -9,6 +9,7 @@ class ChartBuilder extends Component {
     super(props);
     this.state = {
       randomList: this.intitialRandomList(MAX_LENGTH),
+      maxLength: MAX_LENGTH,
     };
   }
 
@@ -27,10 +28,31 @@ class ChartBuilder extends Component {
     this.setState({ randomList: newRandonList });
   };
 
+  bubbleSortHander = () => {
+    this.bubbleSort(this.state.randomList);
+  };
+
+  bubbleSort = (inputArr) => {
+    let len = inputArr.length;
+    for (let i = 0; i < len; i++) {
+      for (let j = 0; j < len; j++) {
+        if (inputArr[j] > inputArr[j + 1]) {
+          [inputArr[j], inputArr[j + 1]] = [inputArr[j + 1], inputArr[j]];
+        }
+        // UI not update intact
+        setTimeout(() => this.setState({ randomList: inputArr }), 1000);
+      }
+    }
+    return inputArr;
+  };
+
   render() {
     return (
       <div className={classes.ChartBuilder}>
-        <ChartControl generateClick={this.generateHandler}></ChartControl>
+        <ChartControl
+          generated={this.generateHandler}
+          bubbleSorted={this.bubbleSortHander}
+        ></ChartControl>
         <Chart randomList={this.state.randomList}></Chart>
       </div>
     );
