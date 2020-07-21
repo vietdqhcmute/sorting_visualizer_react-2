@@ -8,6 +8,7 @@ const layout = (props) => (
   <Aux>
     <ToolBar></ToolBar>
     <main className={classes.Content}>{props.children}</main>
+    <div className={classes.Footer}>Footer</div>
   </Aux>
 );
 

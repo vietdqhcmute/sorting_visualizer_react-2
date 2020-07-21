@@ -1,5 +1,8 @@
-.Toolbar {
-}
+
 .Content {
   margin-top: 10px;
+  margin-left: 30px;
+}
+.Footer{
+  height: 60px;
 }

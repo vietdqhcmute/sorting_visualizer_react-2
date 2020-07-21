@@ -3,16 +3,16 @@ import React, { Component } from "react";
 import ChartControl from "../../components/Chart/ChartControl/ChartControl";
 import Chart from "../../components/Chart/Chart";
 import classes from "./ChartBuilder.module.css";
-
+const MAX_LENGTH = 30;
 class ChartBuilder extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      randomList: this.generateRandomList(30),
+      randomList: this.intitialRandomList(MAX_LENGTH),
     };
   }
 
-  generateRandomList = (maxLength) => {
+  intitialRandomList = (maxLength) => {
     let arr = [];
 
     while (arr.length < maxLength) {
@@ -22,10 +22,15 @@ class ChartBuilder extends Component {
     return arr;
   };
 
+  generateHandler = () => {
+    const newRandonList = this.intitialRandomList(MAX_LENGTH);
+    this.setState({ randomList: newRandonList });
+  };
+
   render() {
     return (
       <div className={classes.ChartBuilder}>
-        <ChartControl></ChartControl>
+        <ChartControl generateClick={this.generateHandler}></ChartControl>
         <Chart randomList={this.state.randomList}></Chart>
       </div>
     );
